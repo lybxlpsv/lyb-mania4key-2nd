@@ -395,12 +395,7 @@ namespace mania4key_v2
             if (z4 >= 0.5f)
                 z4 = z4 - (0.025f * delta);
             previousState = state;
-
-            z = zz;
-            x = xx;
-            c = cc;
-            v = vv;
-
+            
             if (ManagedBass.Bass.ChannelGetPosition(i, ManagedBass.PositionFlags.Bytes) == ManagedBass.Bass.ChannelGetLength(i, ManagedBass.PositionFlags.Bytes))
             {
                 msecfinished = msecfinished + gameTime.ElapsedGameTime.Milliseconds;
@@ -437,10 +432,21 @@ namespace mania4key_v2
 
                         ini.Save();
                     }
+                } else
+                {
+                    if (zz || xx || cc || vv)
+                    {
+                        exit = 5;
+                    }
                 }
             }
 
             replay.CalculateScore(Map, curtime);
+
+            z = zz;
+            x = xx;
+            c = cc;
+            v = vv;
 
             base.Update(gameTime);
         }

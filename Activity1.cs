@@ -12,8 +12,7 @@ namespace testandroid1
         , MainLauncher = false
         , Icon = "@drawable/icon"
         , Theme = "@android:style/Theme.Material"
-        , AlwaysRetainTaskState = false
-        , LaunchMode = Android.Content.PM.LaunchMode.SingleInstance
+        , AlwaysRetainTaskState = true
         , ScreenOrientation = ScreenOrientation.FullUser
         , NoHistory = true
         , ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.ScreenSize | ConfigChanges.ScreenLayout)]
@@ -29,6 +28,15 @@ namespace testandroid1
             mania4key_v2.Game1.exit = 0;
             SetContentView((View)g.Services.GetService(typeof(View)));
             g.Run();
+            System.Threading.Tasks.Task.Run(() =>
+            {
+                while (mania4key_v2.Game1.exit <= 2)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
+                {   
+                    this.Finish(); }
+            });
         }
     }
 }
