@@ -206,6 +206,7 @@ namespace mania4key_v2
                 {
                     _backBuffer = new RenderTarget2D(GraphicsDevice, 300, 3600);
                     _backBuffer2 = new RenderTarget2D(GraphicsDevice, 1920, 1080);
+                    _backBuffer3 = new RenderTarget2D(GraphicsDevice, 1080, 1920);
                     landscape = true;
                 }
             } else
@@ -214,6 +215,7 @@ namespace mania4key_v2
                 {
                     _backBuffer = new RenderTarget2D(GraphicsDevice, 300, 800);
                     _backBuffer2 = new RenderTarget2D(GraphicsDevice, 1080, 1920);
+                    _backBuffer3 = new RenderTarget2D(GraphicsDevice, 1, 1);
                     landscape = false;
                 }
             }
